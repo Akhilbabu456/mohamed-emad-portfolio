@@ -668,7 +668,7 @@ button {
 .profile {
   background-image: url(../img/IMG_2972.JPG.jpeg);
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: top center;
   background-size: cover;
   border-radius: 50%;
   overflow: hidden;

@@ -32,7 +32,7 @@ for (let i = 30; i <= 35; i++) {
                             <video src="img/inner-gallery-${i}.mp4" class="autoplay-on-scroll gallery-video" muted loop playsinline style="width: 100%; height: auto;" onloadedmetadata="$('.gallery-items').isotope('layout');"></video>
                             <div class="gallery-content">
                                 <h3>Cinematic Experience</h3>
-                                <a href="img/inner-gallery-${i}.mp4" class="gallery-link img-popup" data-vbtype="iframe" data-gall="galleryimg">Explore <i class="ti-arrow-right"></i></a>
+                                <a href="https://www.instagram.com/mandu.158?igsh=NGcyamVudnBycWV2" target="_blank" class="gallery-link">Explore <i class="ti-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>`;
