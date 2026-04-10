@@ -132,7 +132,8 @@
             src="./img/sign.jpg"
             alt="sign"
           /> -->
-        </div>
+        
+</div>
       </div>
     </section>
     <!-- About -->
@@ -140,11 +141,6 @@
     <section class="gallery-section padding">
       <div class="container">
         
-        <ul class="gallery-filter text-center mb-50">
-            <li class="active" data-filter="*">All</li>
-            <li data-filter=".image">Images</li>
-            <li data-filter=".video">Videos</li>
-        </ul>
         <div class="row gallery-items">
           <div class="col-md-6 single-item image">
             <div class="gallery-wrap">
@@ -316,7 +312,7 @@
             </div>
           </div>
           <!-- Pic-9 -->
-          <div class="col-md-6 single-item video">
+          <!-- <div class="col-md-6 single-item video">
             <div class="gallery-wrap">
               <video
                 src="img/inner-gallery-30.mp4"
@@ -340,7 +336,7 @@
                 ></a>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <div class="col-md-6 single-item video">
             <div class="gallery-wrap">
@@ -351,12 +347,10 @@
                 loop
                 playsinline
                 style="width: 100%; height: auto"
-                onloadedmetadata="$('.gallery-items').isotope('layout');"
+                onloadedmetadata="$('.gallery-items').isotope('layout')"
               ></video>
               <div class="gallery-content">
-                <h3>
-                  Cinematic Content
-                </h3>
+                <h3>Cinematic Content</h3>
                 <a
                   href="img/inner-gallery-31.mp4"
                   data-vbtype="iframe"
@@ -377,12 +371,10 @@
                 loop
                 playsinline
                 style="width: 100%; height: auto"
-                onloadedmetadata="$('.gallery-items').isotope('layout');"
+                onloadedmetadata="$('.gallery-items').isotope('layout')"
               ></video>
               <div class="gallery-content">
-                <h3>
-                  Cinematic Content
-                </h3>
+                <h3>Cinematic Content</h3>
                 <a
                   href="img/inner-gallery-32.mp4"
                   data-vbtype="iframe"
@@ -403,12 +395,10 @@
                 loop
                 playsinline
                 style="width: 100%; height: auto"
-                onloadedmetadata="$('.gallery-items').isotope('layout');"
+                onloadedmetadata="$('.gallery-items').isotope('layout')"
               ></video>
               <div class="gallery-content">
-                <h3>
-                  Cinematic Content
-                </h3>
+                <h3>Cinematic Content</h3>
                 <a
                   href="img/inner-gallery-33.mp4"
                   data-vbtype="iframe"
@@ -429,12 +419,10 @@
                 loop
                 playsinline
                 style="width: 100%; height: auto"
-                onloadedmetadata="$('.gallery-items').isotope('layout');"
+                onloadedmetadata="$('.gallery-items').isotope('layout')"
               ></video>
               <div class="gallery-content">
-                <h3>
-                  Cinematic Content
-                </h3>
+                <h3>Cinematic Content</h3>
                 <a
                   href="img/inner-gallery-34.mp4"
                   data-vbtype="iframe"
@@ -455,12 +443,10 @@
                 loop
                 playsinline
                 style="width: 100%; height: auto"
-                onloadedmetadata="$('.gallery-items').isotope('layout');"
+                onloadedmetadata="$('.gallery-items').isotope('layout')"
               ></video>
               <div class="gallery-content">
-                <h3>
-                  Cinematic Content
-                </h3>
+                <h3>Cinematic Content</h3>
                 <a
                   href="img/inner-gallery-35.mp4"
                   data-vbtype="iframe"
@@ -472,35 +458,12 @@
             </div>
           </div>
 
-        
-          <div class="col-md-6 single-item video">
-            <div class="gallery-wrap">
-              <video
-                src="img/inner-gallery-13.MOV"
-                class="autoplay-on-scroll gallery-video"
-                muted
-                loop
-                playsinline
-                style="width: 100%; height: auto"
-                onloadedmetadata="$('.gallery-items').isotope('layout');"
-              ></video>
-              <div class="gallery-content">
-                <h3>
-                  Cinematic Content
-                </h3>
-                <a
-                  href="img/inner-gallery-13.MOV"
-                  data-vbtype="iframe"
-                  class="gallery-link img-popup"
-                  data-gall="galleryimg"
-                  >Explore <i class="ti-arrow-right"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-</div>
+                  </div>
+
+        <div class="text-center mt-4 mb-50" style="margin-top: 50px; clear: both;">
+            <a href="#" id="load-more-btn" class="contact-btn" style="padding: 10px 30px; display: inline-block;">Load More</a>
+        </div>
       </div>
-    
     </section>
     <!-- Gallery -->
 
@@ -572,5 +535,35 @@
     <script src="js/vendor/instafeed.min.js"></script>
     <!-- Main JS -->
     <script src="js/main.js"></script>
+  
+    <script>
+      $(window).on('load', function() {
+        var currentLimit = 6;
+        var $grid = $('.gallery-items');
+        
+        // Let isotope settle, then apply limit
+        setTimeout(function() {
+            $grid.isotope({
+                filter: function() {
+                    return $(this).index() < currentLimit;
+                }
+            });
+        }, 800);
+
+        $('#load-more-btn').on('click', function(e) {
+            e.preventDefault();
+            currentLimit += 6;
+            $grid.isotope({
+                filter: function() {
+                    return $(this).index() < currentLimit;
+                }
+            });
+            
+            if (currentLimit >= $('.gallery-items .single-item').length) {
+                $(this).fadeOut();
+            }
+        });
+      });
+    </script>
   </body>
 </html>
